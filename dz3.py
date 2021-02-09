@@ -13,7 +13,14 @@ print(new_value3)
 my_str1 = str(input("Введите строку:"))
 print(my_str1.upper())
 ##############################
-my_str1 = str(input("Введите строку:"))
-print(my_str1.lower())
+my_str2 = str(input("Введите строку:"))
+print(my_str2.lower())
 ###############################
+my_str3 = str(input("Введите строку:"))
+my_str3 = my_str3 + my_str3 if len(my_str3) < 5 else my_str3
+print(my_str3)
+###############################
+my_str4 = str(input("Введите строку:"))
+my_str4 = my_str4 + my_str4[::-1] if len(my_str4) < 5 else my_str4
+print(my_str4)
 
