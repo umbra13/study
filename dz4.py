@@ -34,10 +34,25 @@ except (ValueError, TypeError):
     value = 0
     result = 1
 print(result)
+#############
+my_list = [20, 50, 120, 200]
+my_results = []
+for index, number in enumerate(my_list):
+    my_list[index] = number + index+1
+    if my_list[index] % 2 == 0:
+        my_results.append(my_list[index])
+        print(my_results)
+
 ##############
-# my_list = [20, 50, 120, 200]
-# my_results = []
-# for index in my_list:
-#     if index % 2 == 0:
-#         my_results.append(index)
-#         print(my_results)
+
+my_list_1 = [1, 2, 3, 4]
+my_list_2 = [5, 6, 7, 8]
+for index_1 in enumerate(my_list_1):
+      for index_2 in enumerate(my_list_2):
+        print(index_1 + index_2)
+
+###################
+
+my_string = '0123456789'
+my_list = [int(index) for index in my_string if '0' <= index <= '9']
+print(my_list)
