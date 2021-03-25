@@ -59,21 +59,67 @@ print(my_list)
 # Дана строка в которой есть числа (разделяются пробелами). Найти сумму ВСЕХ ЧИСЕЛ (А НЕ ЦИФР) в этой строке.
 
 my_str = "43 больше чем 34 но меньше чем 56"
-
-
-
-
+my_list = my_str.split()
+result = 0
+for item in my_list:
+    if item.isdigit():
+        result += int(item)
+print(result)
 
 ##################################
 # Дана строка my_str. Разделите эту строку на пары из двух символов и поместите эти пары в список
-my_str = "abcde"
-
-print('' if (my_str := input() + '_') else '', [my_str[index:index+2] for index in range(0, len(my_str) // 2 * 2, 2)], sep='')
+my_str = 'abcd'
+if len(my_str) % 2 != 0:
+    my_str += "_"
+index = 0
+result_list = []
+step = 0
+while index < len(my_str) / 2:
+    result_list.append(my_str[step:step+2])
+    step += 2
+    index += 1
+print(result_list)
 
 ###################################
-# 8 ?
+# 8 Дана строка my_str в которой символы не повторяются и два символа l_limit, r_limit,
+# которые точно находятся в этой строке. Причем l_limit левее чем r_limit.
+# В переменную sub_str поместить часть строки между этими символами.
+# my_str = "My_long str", l_limit = "o", r_limit = "t" -> sub_str = "ng s"
 
-# 9 ?
+my_str = "my_long str"
+l_limit = "o"
+r_limit = "t"
+l_index = my_str.index(l_limit)
+r_index = my_str.index(r_limit)
+sub_str = my_str[l_index + 1:r_index]
+print(sub_str)
 
-# 10 ?
+# 9 Дана строка my_str в которой символы МОГУТ повторяться и два символа l_limit, r_limit,
+# которые точно находятся в этой строке. Причем l_limit левее чем r_limit.
+# В переменную sub_str поместить НАИБОЛЬШУЮ часть строки между этими символами.
+# my_str = "My long string", l_limit = "o", r_limit = "g" -> sub_str = "ng strin".
 
+my_str = "My long string"
+l_limit = "o"
+r_limit = "g"
+l_index = my_str.index(l_limit)
+r_index = my_str.rindex(r_limit)
+sub_str = my_str[l_index + 1:r_index]
+print(sub_str)
+
+# 10 Дан список чисел. Определите, сколько в этом списке элементов,
+# которые больше суммы двух своих соседей (слева и справа), и НАПЕЧАТАЙТЕ КОЛИЧЕСТВО таких элементов.
+# Крайние элементы списка никогда не учитываются, поскольку у них недостаточно соседей.
+# Для списка [2,4,1,5,3,9,0,7] ответом будет 3 потому что 4 > 2+1, 5 > 1+3, 9>3+0.
+my_list = [2, 4, 5, 3, 0, 7]
+counter = 0
+if len(my_list) >= 3:
+    index = 0
+    pos = 1
+    while index < len(my_list) - 2:
+        if my_list[pos] > my_list[pos - 1] + my_list[pos + 1]:
+            counter += 1
+        index += 1
+        pos += 1
+
+print(counter)
